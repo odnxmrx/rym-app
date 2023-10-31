@@ -1,27 +1,46 @@
 import './App.css'
-import Card from './components/Card.jsx';
+import { useState } from 'react';
 import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import characters, { Rick } from './data.js';
+import Nav from './components/Nav';
+import axios from 'axios';
 
 function App() {
 
+  const [characters, setCharacters] = useState([]);
+
+  function onSearch(id) {
+    if(!id) alert('Please, enter an ID.')
+    if(characters.find((char) => char.id === Number(id))) return alert(`Character with id ${id} is already displayed.`)
+
+
+    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-odnxmrx`)
+    .then(
+      ({ data }) => {
+        if (data.name) { //verificar si obtuvimos la info
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert('Character not found.');
+        }
+      }
+    )
+    //.catch( err => alert('Character not found')) //console.log(err.message))
+  }
+
+  const onClose = (id) => {
+    console.log('recibi id ', id)
+    let numericId = Number(id);
+    let result = characters.filter((char) => char.id != numericId);
+    return setCharacters(result);
+    //setCharacters(characters.filter(char => char.id !== Number(id)))
+  }
+
+
   return (
     <div className='App'>
-       <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-       <Cards characters={characters} />
-       <Card
-          id={Rick.id}
-          name={Rick.name}
-          status={Rick.status}
-          species={Rick.species}
-          gender={Rick.gender}
-          origin={Rick.origin.name}
-          image={Rick.image}
-          onClose={() => window.alert('Emulamos que se cierra la card')}
-       />
+      <Nav onSearch={onSearch} />
+      <Cards characters={characters} onClose={onClose} />
     </div>
- );
+  );
 }
 
 export default App

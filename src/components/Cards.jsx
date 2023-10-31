@@ -1,6 +1,6 @@
 import Card from './Card';
 
-export default function Cards({characters}) {
+export default function Cards({characters, onClose}) {
    
    return (
       <div>
@@ -9,13 +9,14 @@ export default function Cards({characters}) {
             return (
                <Card
                   key={char.id}
+                  id={char.id}
                   name={char.name}
                   status={char.status}
                   species={char.species}
                   gender={char.gender}
                   origin={char.origin.name}
                   image={char.image}
-                  onClose={()=> alert('Emulamos que cierra')}
+                  onClose={onClose}
                />
             )
          })
