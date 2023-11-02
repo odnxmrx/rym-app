@@ -3,14 +3,17 @@ import { useState } from 'react';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
 import axios from 'axios';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import About from './components/About';
 import Detail from './components/Detail';
 import NotFound from './components/NotFound';
+import Form from './components/Form.jsx';
 
 function App() {
 
   const [characters, setCharacters] = useState([]);
+
+  const currentLocation = useLocation(); //me interesa currentLocation.pathname
 
   function onSearch(id) {
     if(!id) return alert('Please, enter an ID.')
@@ -39,14 +42,18 @@ function App() {
   return (
     <div className='App'>
 
-      <Nav onSearch={onSearch} />
+      {
+        currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} /> : null
+      }
+
       <Routes>
+        <Route path='/' element={<Form />} />
         <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      
+
     </div>
   );
 }
