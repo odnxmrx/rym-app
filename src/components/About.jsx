@@ -2,7 +2,7 @@ import ArmandoPhoto from '../images/armandopinedagamaphoto.jpg'
 
 const About = () => {
 
-    return(
+    return (
         <>
             <div>
                 <h2>About me</h2>
@@ -14,4 +14,5 @@ const About = () => {
         </>
     )
 }
+
 export default About;

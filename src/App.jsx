@@ -13,8 +13,8 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   function onSearch(id) {
-    if(!id) alert('Please, enter an ID.')
-    if(characters.find((char) => char.id === Number(id))) return alert(`Character with id ${id} is already displayed.`)
+    if(!id) return alert('Please, enter an ID.')
+    if(characters.find((char) => char.id === Number(id))) return alert(`Character with id ${id} is already displaying.`)
 
     axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-odnxmrx`)
     .then(
@@ -26,7 +26,7 @@ function App() {
         }
       }
     )
-    //.catch( err => alert('Character not found')) //console.log(err.message))
+    .catch( err => alert('Character not found')) //console.log(err.message))
   }
 
   const onClose = (id) => {
@@ -51,4 +51,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
