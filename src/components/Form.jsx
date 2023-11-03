@@ -1,7 +1,7 @@
 import { useState } from "react";
 import validate from "./validation";
 
-const Form = () => {
+const Form = (props) => {
 
     const [userData, setUserData] = useState({
         email: '',
@@ -25,10 +25,11 @@ const Form = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        props.login(userData);
     }
 
     return(
-        <form action="" onSubmit={handleSubmit}>
+        <form action="" >
             <label htmlFor="email">Email: </label>
             <input 
                 type="text" 
@@ -52,7 +53,7 @@ const Form = () => {
             <br />
             <small>{errors.password}</small>
             <br />
-            <button>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>
         </form>
     )
 }

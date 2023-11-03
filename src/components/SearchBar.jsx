@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function SearchBar({onSearch}) {
    
    const [id, setId] = useState('');
+   const [arrayOfIds, setArrayOfIds] = useState([]);
 
    //const handleChange = (evento) => {
    function handleChange(event) {
@@ -18,18 +19,35 @@ export default function SearchBar({onSearch}) {
 
    const search = () => {
       onSearch(id);
+      setArrayOfIds([
+         ...arrayOfIds,
+         Number(id)
+      ])
       setId('')
    }
 
-   /* SOON To be: get random character.
-   Possible solution:
-   https://fontawesomeicons.com/fa/react-js-get-random-item-from-array
-   */
+   // console.log(arrayOfIds);
+   function getRandomCharacter() {
+      const randomIndex = Math.floor(Math.random() * 826);
+      // console.log(randomIndex);
+      //case base
+      if(!arrayOfIds.includes(randomIndex)) {
+         // setId(randomIndex);
+         setArrayOfIds([
+            ...arrayOfIds,
+            randomIndex
+         ])
+        return onSearch(randomIndex);
+      } 
+      //recursion
+      getRandomCharacter();
+   }
 
    return (
       <div>
          <input type='search' name='input' placeholder="Enter a character ID" value={id} onChange={handleChange} onKeyDown={handleKeyDown}/>
          <button onClick={()=> search(id)}>Add</button>
+         <button onClick={()=> getRandomCharacter()}>Random</button>
       </div>
    );
 }

@@ -11,7 +11,7 @@ function Detail() {
     const navigate = useNavigate();
 
     const handleNavigateClick = () => {
-        navigate('/home');
+        navigate(-1);
     }
 
     useEffect(() => {
