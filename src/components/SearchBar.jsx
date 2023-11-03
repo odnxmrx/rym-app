@@ -30,7 +30,7 @@ export default function SearchBar({onSearch}) {
    function getRandomCharacter() {
       const randomIndex = Math.floor(Math.random() * 826);
       // console.log(randomIndex);
-      //case base
+      //base case
       if(!arrayOfIds.includes(randomIndex)) {
          // setId(randomIndex);
          setArrayOfIds([

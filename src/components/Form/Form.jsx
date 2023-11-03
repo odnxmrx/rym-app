@@ -28,32 +28,32 @@ const Form = (props) => {
         props.login(userData);
     }
 
-    return(
-        <form action="" >
+    return (
+        <form action="" onSubmit={handleSubmit}>
             <label htmlFor="email">Email: </label>
-            <input 
-                type="text" 
-                id="email" 
-                name="email" 
-                value={userData.email} 
+            <input
+                type="text"
+                id="email"
+                name="email"
+                value={userData.email}
                 onChange={handleChange}
-            
+
             />
             <br />
             <small>{errors.email}</small>
             <br />
             <label htmlFor="password">Password: </label>
-            <input 
-                type="text" 
-                id="password" 
-                name="password" 
+            <input
+                type="text"
+                id="password"
+                name="password"
                 value={userData.password}
                 onChange={handleChange}
             />
             <br />
             <small>{errors.password}</small>
             <br />
-            <button onClick={handleSubmit}>Submit</button>
+            <button>Submit</button>
         </form>
     )
 }

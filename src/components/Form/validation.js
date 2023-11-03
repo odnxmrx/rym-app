@@ -1,16 +1,17 @@
+const correctEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+// /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
 export default function validate(userData) {
     const errors = {};
-
-    const correctEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    // /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (!correctEmail.test(userData.email)) {
         errors.email = 'Please, enter a valid email.'
     }
-    if(userData.email.length === 0) {
+    if (userData.email.length === 0) {
         errors.email = 'Please, enter your email.';
     }
-    if(userData.email.length > 35) {
+    if (userData.email.length > 35) {
         errors.email = "Email can't be longer than 35 characters."
     }
 
@@ -22,10 +23,10 @@ export default function validate(userData) {
     */
 
     // if(userData.password.includes())
-    if(userData.password.length < 6) {
+    if (userData.password.length < 6) {
         errors.password = 'Password must be at least 6 characters';
     }
-    if(userData.password.length > 10) {
+    if (userData.password.length > 10) {
         errors.password = 'Password must be up to 10 characters';
     }
 

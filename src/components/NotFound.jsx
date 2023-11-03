@@ -5,9 +5,10 @@ const NotFound = () => {
 
     const navigate = useNavigate();
 
-    useEffect(()=> {
-        setTimeout(()=> navigate('/home'),3000)
-    }, []);
+    // useEffect(()=> {
+    //     setTimeout(()=> navigate('/home'),3000)
+    // }, []);
+    navigate('/home');
 
     return (
         <>

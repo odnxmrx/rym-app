@@ -7,7 +7,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/About';
 import Detail from './components/Detail';
 import NotFound from './components/NotFound';
-import Form from './components/Form.jsx';
+import Form from './components/Form/Form.jsx';
 
 function App() {
 
@@ -71,7 +71,8 @@ function App() {
     <div className='App'>
 
       {
-        currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} logout={loguot} /> : null
+        // currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} logout={loguot} /> : null
+        currentLocation.pathname !== '/' && <Nav onSearch={onSearch} logout={loguot} />
       }
 
       <Routes>
