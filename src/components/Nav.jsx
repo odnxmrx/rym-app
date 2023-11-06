@@ -7,6 +7,11 @@ export default function Nav({onSearch, logout}){
             <button>
                 <Link to='/home'>Home</Link>
             </button>
+
+            <button>
+                <Link to='/favorites'>Favorites</Link>
+            </button>
+
             <button>
                 <Link to='/about'>About</Link>
             </button>
