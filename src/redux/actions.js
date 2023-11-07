@@ -1,10 +1,11 @@
 import { ADD_FAV, REMOVE_FAV } from "./action-types";
 
-export function addFav(charact) {
+//action creators
+export function addFav(payload) {
     // console.log('el payload de "charact" en actions: ', charact);
     return {
         type: ADD_FAV,
-        payload: charact
+        payload
     }
 }
 

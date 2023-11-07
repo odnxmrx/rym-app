@@ -8,20 +8,19 @@ function Favorites({ myFavorites }) {
                 !myFavorites.length ? ('Your favorite R&M characters will display here.') : (
                     myFavorites?.map((char) => {
                         return (
-                            
-                                <Card
-                                    key={char.id}
-                                    id={char.id}
-                                    name={char.name}
-                                    status={char.status}
-                                    species={char.species}
-                                    gender={char.gender}
-                                    origin={char.origin?.name}
-                                    image={char.image}
-                                />
-                            
+                            <Card
+                                key={char.id}
+                                id={char.id}
+                                name={char.name}
+                                status={char.status}
+                                species={char.species}
+                                gender={char.gender}
+                                origin={char.origin}
+                                image={char.image}
+                            />
                         )
-                    }))
+                    })
+                )
             }
         </div>
     )
@@ -32,4 +31,4 @@ const mapStateToProps = (state) => {
         myFavorites: state.myFavorites
     }
 }
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps, null)(Favorites);

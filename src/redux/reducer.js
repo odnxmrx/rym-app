@@ -17,7 +17,9 @@ const reducer = (state = initialState, action) => {
                 myFavorites: state.myFavorites.filter((char) => char.id !== Number(action.payload))
             }
         default:
-            return state;
+            return {
+                ...state
+            };
     }
 }
 

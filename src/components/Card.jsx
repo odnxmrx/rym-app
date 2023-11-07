@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../redux/actions";
 import { useEffect, useState } from "react";
@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 function Card({ myFavorites, addFav, removeFav, id, name, status, species, gender, origin, image, onClose }) {
 
    const [isFav, setIsFav] = useState(false);
+
+   const { pathname } = useLocation();
 
    function handleFavorite() {
       if (isFav) {
@@ -17,6 +19,7 @@ function Card({ myFavorites, addFav, removeFav, id, name, status, species, gende
       }
    }
 
+   //comprobar que el personaje de la Card ya está en favoritos (en el estado global). (Para cosnserver el boton rojo fav)
    useEffect(() => {
       myFavorites.forEach((fav) => {
          if (fav.id === id) {
@@ -34,7 +37,10 @@ function Card({ myFavorites, addFav, removeFav, id, name, status, species, gende
                <button onClick={handleFavorite}>🤍</button>
             )
          }
-         <button onClick={() => {onClose(id), removeFav(id)}}>X</button>
+         {
+            pathname === '/home' ? <button onClick={() => {onClose(id), removeFav(id)}}>X</button> : null
+         }
+
          <h4>{id}</h4>
          <Link to={`/detail/${id}`}>
             <h2>{name}</h2>
@@ -53,7 +59,6 @@ const mapStateToProps = (state) => {
    return {
       myFavorites: state.myFavorites
    }
-
 }
 
 const mapDispatchToProps = (dispatch) => {
