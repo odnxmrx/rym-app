@@ -2,25 +2,26 @@ import { connect } from "react-redux";
 import Card from "./Card";
 
 function Favorites({ myFavorites }) {
-    console.log(myFavorites);
     return (
         <div>
             {
-                myFavorites.map((char) => {
-                    return (
-                        <Card
-                            key={char?.id}
-                            id={char?.id}
-                            name={char?.name}
-                            status={char?.status}
-                            species={char?.species}
-                            gender={char?.gender}
-                            origin={char?.origin?.name}
-                            image={char?.image}
-
-                        />
-                    )
-                })
+                !myFavorites.length ? ('Your favorite R&M characters will display here.') : (
+                    myFavorites?.map((char) => {
+                        return (
+                            
+                                <Card
+                                    key={char.id}
+                                    id={char.id}
+                                    name={char.name}
+                                    status={char.status}
+                                    species={char.species}
+                                    gender={char.gender}
+                                    origin={char.origin?.name}
+                                    image={char.image}
+                                />
+                            
+                        )
+                    }))
             }
         </div>
     )

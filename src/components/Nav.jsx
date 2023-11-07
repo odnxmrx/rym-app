@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar"
 
-export default function Nav({onSearch, logout}){
+export default function Nav({onSearch, logout, getRandomCharacter}){
     return (
         <div>
             <button>
@@ -18,7 +18,7 @@ export default function Nav({onSearch, logout}){
             <button>
                 <Link to='/' onClick={logout}>Logout</Link>
             </button>
-            <SearchBar onSearch={onSearch} />
+            <SearchBar onSearch={onSearch} getRandomCharacter={getRandomCharacter} />
         </div>
     )
 }

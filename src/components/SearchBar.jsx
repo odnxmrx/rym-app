@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar({onSearch, getRandomCharacter}) {
    
    const [id, setId] = useState('');
-   const [arrayOfIds, setArrayOfIds] = useState([]);
 
    //const handleChange = (evento) => {
    function handleChange(event) {
@@ -17,36 +16,15 @@ export default function SearchBar({onSearch}) {
       }
    }
 
-   const search = () => {
+   const mySearch = () => {
       onSearch(id);
-      setArrayOfIds([
-         ...arrayOfIds,
-         Number(id)
-      ])
       setId('')
-   }
-
-   // console.log(arrayOfIds);
-   function getRandomCharacter() {
-      const randomIndex = Math.floor(Math.random() * 826);
-      // console.log(randomIndex);
-      //base case
-      if(!arrayOfIds.includes(randomIndex)) {
-         // setId(randomIndex);
-         setArrayOfIds([
-            ...arrayOfIds,
-            randomIndex
-         ])
-        return onSearch(randomIndex);
-      } 
-      //recursion
-      getRandomCharacter();
    }
 
    return (
       <div>
          <input type='search' name='input' placeholder="Enter a character ID" value={id} onChange={handleChange} onKeyDown={handleKeyDown}/>
-         <button onClick={()=> search(id)}>Add</button>
+         <button onClick={()=> {mySearch(id)}}>Add</button>
          <button onClick={()=> getRandomCharacter()}>Random</button>
       </div>
    );

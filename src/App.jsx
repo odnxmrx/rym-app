@@ -20,25 +20,33 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
+  const [arrayOfIds, setArrayOfIds] = useState([]);
+
+
   const currentLocation = useLocation(); //me interesa currentLocation.pathname
 
   const navigate = useNavigate();
 
   function onSearch(id) {
-    if(!id) return alert('Please, enter an ID.')
-    if(characters.find((char) => char.id === Number(id))) return alert(`Character with id ${id} is already displaying.`)
+    if (!id) return alert('Please, enter an ID.')
+    if (characters.find((char) => char.id === Number(id))) return alert(`Character with id ${id} is already displaying.`)
+
+    setArrayOfIds([
+      ...arrayOfIds,
+      Number(id)
+    ])
 
     axios(`${URL_API}/${id}?key=pi-odnxmrx`)
-    .then(
-      ({ data }) => {
-        if (data.name) { //verificar si obtuvimos la info
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert('Character not found.');
+      .then(
+        ({ data }) => {
+          if (data.name) { //verificar si obtuvimos la info
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            window.alert('Character not found.');
+          }
         }
-      }
-    )
-    .catch( err => alert('Character not found')) //console.log(err.message))
+      )
+      .catch(err => alert('Character not found')) //console.log(err.message))
   }
 
   const onClose = (id) => {
@@ -50,30 +58,46 @@ function App() {
 
 
   function login(userData) {
-    if(userData.email === EMAIL_USER && userData.password === PASSWORD_USER) {
+    if (userData.email === EMAIL_USER && userData.password === PASSWORD_USER) {
       setAccess(true);
       navigate('/home');
-    } 
+    }
   }
 
-  function loguot(){
+  function loguot() {
     setAccess(false);
     // setCharacters([]);
     window.location.replace('/'); //reload
     // navigate('/');
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     !access && navigate('/');
   }, [access]);
-  // console.log(navigate);
-  
+
+  //  console.log(arrayOfIds);
+  function getRandomCharacter() {
+    const randomIndex = Math.floor(Math.random() * 826);
+    // console.log(randomIndex);
+    //base case
+    if (!arrayOfIds.includes(randomIndex)) {
+      setArrayOfIds([
+        ...arrayOfIds,
+        randomIndex
+      ])
+      return onSearch(randomIndex);
+    }
+    //recursion
+    getRandomCharacter();
+  }
+
+
   return (
     <div className='App'>
 
       {
         // currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} logout={loguot} /> : null
-        currentLocation.pathname !== '/' && <Nav onSearch={onSearch} logout={loguot} />
+        currentLocation.pathname !== '/' && <Nav onSearch={onSearch} logout={loguot} getRandomCharacter={getRandomCharacter} />
       }
 
       <Routes>

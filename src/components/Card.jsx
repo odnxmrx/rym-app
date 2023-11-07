@@ -9,7 +9,6 @@ function Card({ myFavorites, addFav, removeFav, id, name, status, species, gende
 
    function handleFavorite() {
       if (isFav) {
-         console.log('que es id ??? ',id)
          setIsFav(false);
          removeFav(id);
       } else {
@@ -26,7 +25,6 @@ function Card({ myFavorites, addFav, removeFav, id, name, status, species, gende
       });
    }, [myFavorites]);
 
-
    return (
       <div>
          {
@@ -36,7 +34,7 @@ function Card({ myFavorites, addFav, removeFav, id, name, status, species, gende
                <button onClick={handleFavorite}>🤍</button>
             )
          }
-         <button onClick={() => onClose(id)}>X</button>
+         <button onClick={() => {onClose(id), removeFav(id)}}>X</button>
          <h4>{id}</h4>
          <Link to={`/detail/${id}`}>
             <h2>{name}</h2>
