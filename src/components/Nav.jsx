@@ -15,8 +15,7 @@ export default function Nav({onSearch, logout, getRandomCharacter}){
             <button>
                 <Link to='/about'>About</Link>
             </button>
-            <button>
-                <Link to='/' onClick={logout}>Logout</Link>
+            <button onClick={logout}>Logout
             </button>
             <SearchBar onSearch={onSearch} getRandomCharacter={getRandomCharacter} />
         </div>

@@ -22,7 +22,6 @@ function App() {
 
   const [arrayOfIds, setArrayOfIds] = useState([]);
 
-
   const currentLocation = useLocation(); //me interesa currentLocation.pathname
 
   const navigate = useNavigate();
@@ -56,7 +55,6 @@ function App() {
     //setCharacters(characters.filter(char => char.id !== Number(id)))
   }
 
-
   function login(userData) {
     if (userData.email === EMAIL_USER && userData.password === PASSWORD_USER) {
       setAccess(true);
@@ -64,11 +62,11 @@ function App() {
     }
   }
 
-  function loguot() {
+  function logout() {
     setAccess(false);
     // setCharacters([]);
-    window.location.replace('/'); //reload
-    // navigate('/');
+    //window.location.replace('/'); //reload
+    navigate('/');
   }
 
   useEffect(() => {
@@ -91,13 +89,12 @@ function App() {
     getRandomCharacter();
   }
 
-
   return (
     <div className='App'>
 
       {
-        // currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} logout={loguot} /> : null
-        currentLocation.pathname !== '/' && <Nav onSearch={onSearch} logout={loguot} getRandomCharacter={getRandomCharacter} />
+        // currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} logout={logout} /> : null
+        currentLocation.pathname !== '/' && <Nav onSearch={onSearch} logout={logout} getRandomCharacter={getRandomCharacter} />
       }
 
       <Routes>

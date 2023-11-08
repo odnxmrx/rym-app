@@ -50,7 +50,7 @@ function Card({ myFavorites, addFav, removeFav, id, name, status, species, gende
          <h2>{species}</h2>
          <h2>{gender}</h2>
          <h2>{origin?.name}</h2>
-         <img src={image} alt={name} />
+         <img src={image} alt={`${name} profile picture`} />
       </div>
    );
 }
