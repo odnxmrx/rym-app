@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import SearchBar from "./SearchBar"
 
-export default function Nav({onSearch, logout, getRandomCharacter}){
+export default function Nav({ onSearch, logout, getRandomCharacter }) {
+
+    const { pathname } = useLocation();
+
     return (
         <div>
             <button>
@@ -17,7 +20,9 @@ export default function Nav({onSearch, logout, getRandomCharacter}){
             </button>
             <button onClick={logout}>Logout
             </button>
-            <SearchBar onSearch={onSearch} getRandomCharacter={getRandomCharacter} />
+            {
+                pathname === '/home' && <SearchBar onSearch={onSearch} getRandomCharacter={getRandomCharacter} />
+            }
         </div>
     )
 }

@@ -51,6 +51,10 @@ function App() {
   const onClose = (id) => {
     let numericId = Number(id);
     let result = characters.filter((char) => char.id != numericId);
+
+    let deleteFromArrayOfId = arrayOfIds.filter((item) => item !== numericId)
+    setArrayOfIds(deleteFromArrayOfId);
+
     return setCharacters(result);
     //setCharacters(characters.filter(char => char.id !== Number(id)))
   }
@@ -73,7 +77,7 @@ function App() {
     !access && navigate('/');
   }, [access]);
 
-  //  console.log(arrayOfIds);
+  // console.log(arrayOfIds);
   function getRandomCharacter() {
     const randomIndex = Math.floor(Math.random() * 826);
     // console.log(randomIndex);
