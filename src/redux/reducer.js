@@ -20,7 +20,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         myFavorites: removeCharac,
-        // allCharacters: removeCharac,
+        allCharacters: removeCharac,
       };
     case FILTER:
       let filtered = state.allCharacters.filter(
