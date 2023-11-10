@@ -1,0 +1,38 @@
+
+form {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 8px;
+    /* border: 1px solid hsl(0deg 0% 50%); */
+  }
+
+  label {
+    font-weight: 500;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 4px;
+    border-radius: 8px;
+    border: 1px solid #609;
+  }
+
+  .email {
+    flex-grow: 3;
+    flex-basis: 170px;
+  }
+
+  .password {
+    flex-grow: 1;
+    flex-basis: 120px;
+  }
+
+  .loginBtn {
+    height: 3rem;
+    flex-grow: 1;
+    flex-basis: 70px;
+  }

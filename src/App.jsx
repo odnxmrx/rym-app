@@ -1,20 +1,23 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav';
+import Cards from './components/Cards/Cards';
+import Nav from './components/Nav/Nav';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import About from './components/About';
-import Detail from './components/Detail';
+import About from './components/About/About';
+import Detail from './components/Detail/Detail';
 import NotFound from './components/NotFound';
-import Form from './components/Form/Form.jsx';
-import Favorites from './components/Favorites.jsx';
+import Welcome from './components/Welcome/Welcome';
+import Favorites from './components/Favorites/Favorites';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
   const URL_API = 'https://rym2.up.railway.app/api/character';
   const EMAIL_USER = 'armando@henry.com';
   const PASSWORD_USER = 'Password1';
+  // const EMAIL_USER = '';
+  // const PASSWORD_USER = '';
 
   const [characters, setCharacters] = useState([]);
 
@@ -94,7 +97,7 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className='fullContainer'>
 
       {
         // currentLocation.pathname !== '/' ? <Nav onSearch={onSearch} logout={logout} /> : null
@@ -102,13 +105,14 @@ function App() {
       }
 
       <Routes>
-        <Route path='/' element={<Form login={login} />} />
+        <Route path='/' element={<Welcome login={login} />} />
         <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      <Footer />
 
     </div>
   );

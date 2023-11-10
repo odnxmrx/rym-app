@@ -1,0 +1,10 @@
+.myFooter {
+    height: 72px;
+    /* background: #eee; */
+    color: #646cff;
+    display: flex;
+    /* flex-grow: 1; */
+    /* background-color: aquamarine; */
+    justify-content: center;
+    align-items: center;
+  }

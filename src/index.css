@@ -5,7 +5,9 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 10%, rgba(20,20,55,1) 61%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,10 +27,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /* place-items: center; */
   min-width: 320px;
-  min-height: 100vh;
+  /* height: 100vh; */
+  display: flex;
+  /* scroll-behavior: smooth; */
 }
 
 h1 {
@@ -47,9 +50,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
+  transition: 200ms;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -58,7 +64,9 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background: rgb(244,244,244);
+    background: linear-gradient(90deg, rgba(244,244,244,1) 10%, rgba(221,221,221,1) 81%);
   }
   a:hover {
     color: #747bff;

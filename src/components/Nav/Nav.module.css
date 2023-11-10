@@ -1,0 +1,55 @@
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+ul {
+    display: flex;
+    gap: 12px;
+    list-style-type: none;
+    align-items: baseline;
+    padding: 0px;
+    margin: 0;
+}
+
+li.myLogo {
+    margin-right: auto;
+}
+
+ul a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.myLogo a {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/**responsive*/
+
+@media only screen and (max-width: 768px) {
+
+    .navMenu {
+        
+        max-width: 90vh;
+        height: inherit;
+    }
+
+    .navMenu ul {
+        display: flex;
+        flex-direction: column;
+        flex: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }   
+
+    li.myLogo {
+        margin: auto;
+    }
+
+}
