@@ -1,0 +1,69 @@
+.myCardContainer {
+    margin: 10px 5px;
+    max-width: 310px;
+    background-color: rgba(105, 105, 105, 0.23);
+    border-radius: 0.7rem;
+    box-shadow: 0 4px 20px 5px rgba(0,0,0,0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
+    border: 1px solid #ffffff22;
+}
+
+.myCardContainer:hover {
+    box-shadow: 0 4px 20px rgba(1,1,1,0.5);
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 1rem;
+}
+
+.closeBtn {
+    position: fixed;
+    right: 12px;
+}
+.mainContent img {
+    border-radius: .5rem;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.moreInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.spanBtn {
+    /* border: 0; */
+	/* background-color: #1a1a1a; */
+	border-radius: .5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	font-size: 1.25rem;
+	/* transition: .25s ease; */
+	box-shadow: 0 0 0 1px rgba(#000, .05), 0 3px 8px 0 rgba(#000, .15);
+	z-index: 1;
+	/* cursor: pointer; */
+	color: #565656;
+
+}
+
+.moreInfo h3 {
+    max-width: 18ch;
+    margin-top: 0;
+}
+
+
+.moreInfo button {
+    position: fixed;
+    right: 12px;
+}
