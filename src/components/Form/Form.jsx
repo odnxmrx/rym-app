@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import validate from "./validation";
+import validate from "./validation.js";
 import style from './Form.module.css'
 
 const Form = (props) => {

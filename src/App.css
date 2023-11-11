@@ -21,10 +21,8 @@ h1::first-letter {
   text-transform: uppercase;
 }
 
-/**responsive try*/
-
+/**responsive*/
 @media only screen and (max-width: 768px) {
-
   .fullContainer {
       min-width: 30vh;
       max-width: 90vh;
