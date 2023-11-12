@@ -1,15 +1,28 @@
+import { useState } from 'react';
 import ArmandoPhoto from '../../images/armandopinedagamaphoto.jpg'
 import BackBtn from '../BackBtn/BackBtn';
+import Popup from '../Popup/Popup';
 import style from './About.module.css';
+import PopupBox from '../PopupBox.jsx/PopupBox';
 
 const About = () => {
+
+    // const [modal, setModal] = useState(false);
 
     return (
         <>
         <BackBtn />
+                    {/* <PopupBox /> */}
             <div className={style.detailContainer}>
                 <div className={style.leftContainer}>
                     <h1>About</h1>
+{/*         
+                    <button onClick={() => setModal(true)}>Open modalll</button>
+                    <Popup openModal={modal} closeModal={()=> setModal(false)}>
+                    Modal info???
+                    </Popup>
+ */}
+
                     <small>Details from the app</small>
                     <h2>Rick & Morty</h2>
                     <p>
