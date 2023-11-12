@@ -58,7 +58,7 @@ img {
         flex-direction: column;
     }
     
-    .imageWrapper img {
+    .imageWrapper {
         display: none;
     }
 }
