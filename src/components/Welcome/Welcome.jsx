@@ -16,7 +16,7 @@ export default function Welcome({ login }) {
                     </div>
                     <div className={style.imageWrapper}>
                         <img src={rymgif} alt="Animated Rick n Morty Pixelart" />
-                        <br/><small>Art by <a href="https://www.deviantart.com/babarbie/gallery">Babarbie</a> on deviantart</small>
+                        <br/><small>Art by <a href="https://www.deviantart.com/babarbie/gallery">Babarbie</a> on DeviantArt</small>
                     </div>
 
                 </div>
