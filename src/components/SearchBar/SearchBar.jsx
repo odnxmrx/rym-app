@@ -24,7 +24,7 @@ export default function SearchBar({ onSearch, getRandomCharacter }) {
 
    return (
       <div className={style.searchContainer}>
-         <input type='search' name='input' placeholder="Enter a character ID" value={id} onChange={handleChange} onKeyDown={handleKeyDown} />
+         <input type='search' name='input' placeholder="Enter a character ID" value={id} onChange={handleChange} onKeyDown={handleKeyDown} autoFocus />
          <button onClick={() => { mySearch(id) }}>Add</button>
          <button onClick={() => getRandomCharacter()}>Random</button>
       </div>

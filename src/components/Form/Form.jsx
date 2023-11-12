@@ -51,6 +51,7 @@ const Form = (props) => {
                         value={userData.email}
                         onChange={handleChange}
                         placeholder="Email"
+                        autoFocus
                     />
                 </label>
 
