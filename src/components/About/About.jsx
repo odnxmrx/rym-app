@@ -12,16 +12,9 @@ const About = () => {
     return (
         <>
         <BackBtn />
-                    {/* <PopupBox /> */}
             <div className={style.detailContainer}>
                 <div className={style.leftContainer}>
                     <h1>About</h1>
-{/*         
-                    <button onClick={() => setModal(true)}>Open modalll</button>
-                    <Popup openModal={modal} closeModal={()=> setModal(false)}>
-                    Modal info???
-                    </Popup>
- */}
 
                     <small>Details from the app</small>
                     <h2>Rick & Morty</h2>
