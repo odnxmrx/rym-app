@@ -25,7 +25,7 @@ function Detail() {
     }, [id]);
 
     return (
-        <div>
+        <div className={style.mainContainer}>
             <BackBtn />
             {
                 character ? (
