@@ -10,7 +10,7 @@ const About = () => {
     // const [modal, setModal] = useState(false);
 
     return (
-        <>
+        <div className={style.mainContainer}>
         <BackBtn />
             <div className={style.detailContainer}>
                 <div className={style.leftContainer}>
@@ -33,7 +33,7 @@ const About = () => {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
