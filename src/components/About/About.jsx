@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import ArmandoPhoto from '../../images/armandopinedagamaphoto.jpg'
 import BackBtn from '../BackBtn/BackBtn';
-import Popup from '../Popup/Popup';
 import style from './About.module.css';
-import PopupBox from '../PopupBox.jsx/PopupBox';
 
 const About = () => {
 
