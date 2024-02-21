@@ -24,7 +24,7 @@ function Favorites() {
         <div className={style.mainContainer}>
             <BackBtn />
             <h1>Favorites</h1>
-            <div>
+            <div className={style.filterOptions}>
                 <select name="filter" id="" onChange={handleFilter} defaultValue='All'>
                     <option value="All">All genders</option>
                     <option value="Male">Male</option>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import style from "./BackBtn.module.css";
 
 export default function BackBtn() {
 
@@ -8,7 +9,7 @@ export default function BackBtn() {
         navigate(-1);
     }
 
-    return( <div>
+    return( <div className={style.backButtonContainer}>
         <button onClick={handleNavigateClick}>← Go back</button>
     </div>)
 }

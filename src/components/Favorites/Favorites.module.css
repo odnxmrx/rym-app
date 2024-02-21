@@ -5,6 +5,10 @@
     flex-grow: 2;
 }
 
+.filterOptions {
+    margin: 0 auto;
+}
+
 .container {
     margin-top: 1rem;
     display: flex;

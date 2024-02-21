@@ -28,10 +28,10 @@ export default function Nav({ onSearch, logout, getRandomCharacter }) {
                             About
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href='#' onClick={() => logout()}>Logout
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
 
